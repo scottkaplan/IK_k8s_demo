@@ -76,7 +76,6 @@
     - Find default for IK VPC
     - Edit incoming rule
     - Add rule: NFS to any IPv4
-
 - kubectl
   - kubectl get sc
   - kubectl describe sc gp2
@@ -93,30 +92,26 @@
 ## Namespace
 
 - kubectl get ns
-
 - Create the namespace imperatively
-- kubectl create ns hydra
-- kubectl get ns
-
+  - kubectl create ns hydra
+  - kubectl get ns
 - Create the namespace declaratively
-- kubectl apply -f shield-ns.yml
-- kubectl get ns
-- kubectl apply -f shield-app.yml
-- kubectl get pods # Nope, not here, this is the default namespace
-- kubectl get pods --all-namespaces
-- kubectl get pods -n shield
-- kubectl get svc -n shield
+  - kubectl apply -f shield-ns.yml
+  - kubectl get ns
+  - kubectl apply -f shield-app.yml
+  - kubectl get pods # Nope, not here, this is the default namespace
+  - kubectl get pods --all-namespaces
+  - kubectl get pods -n shield
+  - kubectl get svc -n shield
 
 
 ## Configmap
 
 - kubectl apply -f multimap.yml
 - kubectl describe cm multimap
-
 - pass config map in the environment
   - kubectl apply -f envpod.yml
   - kubectl exec envpod -- env | grep NAME
-
 - Mount the config on the file system where each file has the key as the file name and the value as the file contents
   - kubectl apply -f cmpod.yml
   - kubectl exec cmvol -- ls /etc/name
@@ -128,14 +123,12 @@
 - kubectl apply -f tkb-secret.yml
 - kubectl get secret
 - kubectl describe secret/tkb-secret
-
 - Pass secrets by mounting a volume:
-- kubectl apply -f secretpod.yml
-- kubectl exec secret-pod -- ls /etc/tkb
-- kubectl exec secret-pod -- cat /etc/tkb/password
-
+  - kubectl apply -f secretpod.yml
+  - kubectl exec secret-pod -- ls /etc/tkb
+  - kubectl exec secret-pod -- cat /etc/tkb/password
 - Secrets aren’t secure
-- echo UGFzc3dvcmQxMjM= | base64 -d
+  - echo UGFzc3dvcmQxMjM= | base64 -d
 
 
 ## Health Checks
