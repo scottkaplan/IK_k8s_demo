@@ -54,10 +54,8 @@
 
 - kubectl apply -f lb.yml
 - kubectl get svc lb-svc
-- # this spins up an AWS load balancer
-- # Note AWS specific annotations
+- this spins up an AWS load balancer; Note AWS specific annotations
 - kubectl apply -f lb.yml
-- Notice the annotations for the AWS specific LB parameters
 - Listen on port 8080 and send incoming requests to any pod with the label app=hello-world
 - Show the AWS LB in the AWS console
 - Open a browser and visit <LB URL>:8080
@@ -96,11 +94,11 @@
 
 - kubectl get ns
 
-# Create the namespace imperatively
+- Create the namespace imperatively
 - kubectl create ns hydra
 - kubectl get ns
 
-# Create the namespace declaratively
+- Create the namespace declaratively
 - kubectl apply -f shield-ns.yml
 - kubectl get ns
 - kubectl apply -f shield-app.yml
@@ -131,12 +129,12 @@
 - kubectl get secret
 - kubectl describe secret/tkb-secret
 
-- # Pass secrets by mounting a volume:
+- Pass secrets by mounting a volume:
 - kubectl apply -f secretpod.yml
 - kubectl exec secret-pod -- ls /etc/tkb
 - kubectl exec secret-pod -- cat /etc/tkb/password
 
-- # Secrets aren’t secure
+- Secrets aren’t secure
 - echo UGFzc3dvcmQxMjM= | base64 -d
 
 
